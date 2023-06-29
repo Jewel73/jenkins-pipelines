@@ -1,7 +1,8 @@
 node {
 
     stage('CloneRepo') {
-        git url: 'https://github.com/Jewel73/naztech-jdbc.git'
+         git branch: 'main', 
+         url: 'https://github.com/Jewel73/naztech-jdbc.git'
     }
     
     stage('Build') {
