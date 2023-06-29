@@ -3,5 +3,12 @@ node {
     stage('Sanity') {
         sh 'echo Hello, World!'
     }
+    
+    
+    stage('buil'){
+    
+    	sh 'echo build the screipt here'
+    	
+    }
 
 }
