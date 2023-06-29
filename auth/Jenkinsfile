@@ -1,13 +1,19 @@
-node {
+pipeline {
+    agent any
 
-    stage('CloneRepo') {
-         git branch: 'main', 
-         url: 'https://github.com/Jewel73/naztech-jdbc.git'
+    stages {
+        stage('CloneRepo') {
+            steps {
+                git branch: 'main', 
+                url: 'https://github.com/Jewel73/naztech-jdbc.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh './gradlew clean'
+                sh './gradlew build'
+            }
+        }
     }
-    
-    stage('Build') {
-        sh './gradlew clean'
-        sh './gradlew build'
-    }
-
 }
