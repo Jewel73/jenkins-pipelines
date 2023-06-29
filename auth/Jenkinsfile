@@ -1,0 +1,7 @@
+node {
+
+    stage('Sanity') {
+        sh 'echo Hello, World!'
+    }
+
+}
