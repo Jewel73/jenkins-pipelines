@@ -1,14 +1,12 @@
 node {
 
-    stage('Sanity') {
-        sh 'echo Hello, World!'
+    stage('CloneRepo') {
+        git url: 'https://github.com/Jewel73/naztech-jdbc.git'
     }
     
-    
-    stage('buil'){
-    
-    	sh 'echo build the screipt here'
-    	
+    stage('Build') {
+        sh './gradlew clean'
+        sh './gradlew build'
     }
 
 }
