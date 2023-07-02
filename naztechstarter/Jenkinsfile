@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('CloneRepo') {
+            steps {
+                git branch: 'main', 
+                url: 'https://github.com/Jewel73/naztech-starter.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh './gradlew clean'
+                sh './gradlew build'
+                sh 'mv build/libs/*.jar ./ '
+                sh 'echo "completed the step " '
+            }
+        }
+    }
+}
